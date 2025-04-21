@@ -11,6 +11,10 @@ import { UserprofileComponent } from "../userprofile/userprofile.component";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  
+
+
   showModal = false;
 
   modalState = {
@@ -32,6 +36,10 @@ export class HeaderComponent {
 
   Yo : boolean = false;
   ShowHeader:any = {
+    List : false
+  };
+  
+  ShowMainHeader:any = {
     List : false
   };
 
