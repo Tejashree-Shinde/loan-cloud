@@ -6,7 +6,7 @@ import { MysqlDatePipe } from '../mysql-date.pipe';
 
 @Component({
   selector: 'app-loancreation',
-  imports: [CommonModule,FormsModule , MysqlDatePipe ],
+  imports: [CommonModule,FormsModule , MysqlDatePipe],
   templateUrl: './loancreation.component.html',
   styleUrl: './loancreation.component.css'
 })
@@ -14,6 +14,7 @@ import { MysqlDatePipe } from '../mysql-date.pipe';
 export class LoancreationComponent {
   
   LoanTable : any = [];
+  
   schedule : any = [];
   periodUnit : any = [
     { value : "year" , Title : "Year"},
@@ -34,11 +35,11 @@ export class LoancreationComponent {
   }
 
   LoanForm:any = {
-    LoanAmount : 0 ,
-    Tenure : 0 ,
+    LoanAmount : 50000 ,
+    Tenure : 12 ,
     TenureType : "month" ,
-    RateOfInterest : 0 ,
-    RateOfInterestType : "year" ,
+    RateOfInterest : 3 ,
+    RateOfInterestType : "month" ,
     CalculationType : "flat" ,
     balloonPayment : 2 ,
     LoanDate : new Date().toISOString().slice(0,10),

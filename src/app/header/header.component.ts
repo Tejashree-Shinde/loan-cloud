@@ -1,13 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { LoancreationComponent } from '../loancreation/loancreation.component';
+import {PopUpModalComponent} from '../reusable/pop-up-modal/pop-up-modal.component';
+import { UserprofileComponent } from "../userprofile/userprofile.component";
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, LoancreationComponent, PopUpModalComponent, UserprofileComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  showModal = false;
+
+  modalState = {
+    visible: false,
+    content: '' as 'loan' | 'userProfile' | ''
+  };
+
+  // This method opens modal with different content
+  openModal(contentType: 'loan' |  'userProfile') {
+    this.modalState.visible = true;
+    this.modalState.content = contentType;
+  }
+
+  // This method closes the modal
+  closeModal() {
+    this.modalState.visible = false;
+    this.modalState.content = '';
+  }
+
   Yo : boolean = false;
   ShowHeader:any = {
     List : false

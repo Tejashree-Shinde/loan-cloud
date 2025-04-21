@@ -15,7 +15,20 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">Create User</a>
+        <button
+          class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
+          (click)="openModal('userProfile')"
+        >
+          Create User
+        </button>
+  
+        <button
+          class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
+          (click)="openModal('loan')"
+        >
+          Create Loan
+        </button>
+
         <div class="relative">
             
           <button 
@@ -164,4 +177,11 @@
     <!-- Mobile menu, show/hide based on menu open state. -->
     
   </header>
+  <app-pop-up-modal [visible]="modalState.visible" (closed)="closeModal()">
+    <ng-container [ngSwitch]="modalState.content">
+      <app-loancreation *ngSwitchCase="'loan'"></app-loancreation>
+      <app-userprofile *ngSwitchCase="'userProfile'"></app-userprofile>
+    </ng-container>
+
+  </app-pop-up-modal>
   

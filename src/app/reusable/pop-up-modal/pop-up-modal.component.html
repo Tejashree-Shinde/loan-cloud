@@ -1,0 +1,15 @@
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-2" *ngIf="visible">
+  <!-- Modal content -->  
+  <div class="bg-white w-full max-w-2xl rounded-lg shadow-lg overflow-y-auto max-h-[90vh] p-2">
+    <div class="flex items-center justify-between  flex-row-reverse">
+      <button (click)="close()" class="text-[24px] text-gray-400 hover:text-black">&times;</button>
+    </div>
+
+    <ng-content></ng-content>
+    <div class="flex items-center justify-between  flex-row-reverse">
+      <button (click)="close()" type="button" class="text-sm/6 font-semibold text-gray-900 border-2 p-2 rounded">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

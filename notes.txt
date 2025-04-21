@@ -1,0 +1,18 @@
+/*Modal code */
+import {PopUpModalComponent} from '../reusable/pop-up-modal/pop-up-modal.component';
+
+#Add this in class
+showModal = false;
+
+<button
+  class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+  (click)="showModal = true"
+>
+  Open Modal
+</button>
+
+<app-pop-up-modal [visible]="showModal" (closed)="showModal = false"></app-pop-up-modal>
+
+
+/*Inputs*/
+//For select input , name should be unique else the ngmodel will not work

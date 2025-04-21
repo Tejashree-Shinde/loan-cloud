@@ -1,9 +1,6 @@
-
-<div class="w-8/12 flex justify-center">
+  <div class="bg-white p-6   w-full  flex justify-center ">
     <form>
       <div class="space-y-12">
-        
-  
         <div class="border-b border-gray-900/10 pb-12">
           <h2 class="text-3xl font-bold  text-gray-900">
             Loan For Ramesh
@@ -92,7 +89,7 @@
                       <label for="rate-of-interest-type" class="block text-sm font-medium text-gray-700 mb-1">
                         Rate of Interest Type
                       </label>
-                      <select id="rate-of-interest-type" name="tenureType"
+                      <select id="rate-of-interest-type" name="rate-of-interest-type"
                           class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
                         [(ngModel)]="LoanForm.RateOfInterestType"
                         autocomplete="month"
@@ -158,9 +155,6 @@
        
   
       <div class="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" class="text-sm/6 font-semibold text-gray-900">
-          Cancel
-        </button>
         <button
           type="submit"
           class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -172,29 +166,27 @@
     </form>
   </div>
 
-  <div class="w-8/12 flex justify-center">
-  <div class="px-4 sm:px-6 lg:px-8">
-    <div class="mt-8 flow-root">
-      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <div class="w-full flex justify-center overflow-auto">
         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <table class="min-w-full divide-y divide-gray-200">
+          <table class="min-w-full divide-y divide-gray-200 ">
             <thead>
               <tr>
                 <th scope="col" class="py-3.5 px-4 text-left text-sm font-semibold text-gray-900">Sr.</th>
+                <th scope="col" class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Emi Date</th>
                 <th scope="col" class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Emi Amount</th>
                 <th scope="col" class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Principal</th>
                 <th scope="col" class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Interest</th>
-                <th scope="col" class="px-4 py-3.5 text-left text-sm font-semibold text-gray-900">Emi Date</th>
+                
                 <th scope="col" class="px-4 py-3.5 text-right text-sm font-semibold text-gray-900">Actions</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white text-sm text-gray-700">
               <tr *ngFor="let item of schedule ; index as i">
                 <td class="whitespace-nowrap px-4 py-4 font-medium text-gray-900">{{i+1}}</td>
+                <td class="whitespace-nowrap px-4 py-4">{{item.EmiDate | mysqlDate:'%d-%b-%Y'}}</td>
                 <td class="whitespace-nowrap px-4 py-4">{{item.emi}}</td>
                 <td class="whitespace-nowrap px-4 py-4">{{item.principal}}</td>
                 <td class="whitespace-nowrap px-4 py-4">{{item.interest}}</td>
-                <td class="whitespace-nowrap px-4 py-4">{{item.EmiDate | mysqlDate:'%d-%b-%Y'}}</td>
                 <td class="whitespace-nowrap px-4 py-4 text-right">
                   <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                 </td>
@@ -202,14 +194,5 @@
               <!-- Copy more rows as needed -->
             </tbody>
           </table>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-  
-  
-  
-  
-  
-  
