@@ -19,11 +19,11 @@ export class HeaderComponent {
 
   modalState = {
     visible: false,
-    content: '' as 'loan' | 'userProfile' | ''
+    content: '' as 'loanCreation' | 'userProfile' | ''
   };
 
   // This method opens modal with different content
-  openModal(contentType: 'loan' |  'userProfile') {
+  openModal(contentType: 'loanCreation' |  'userProfile') {
     this.modalState.visible = true;
     this.modalState.content = contentType;
   }
@@ -38,7 +38,7 @@ export class HeaderComponent {
   ShowHeader:any = {
     List : false
   };
-  
+
   ShowMainHeader:any = {
     List : false
   };

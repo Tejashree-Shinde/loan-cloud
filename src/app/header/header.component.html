@@ -6,14 +6,7 @@
           <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="">
         </a>
       </div>
-      <div class="flex lg:hidden">
-        <button (click)="ShowMainHeader.List=true" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-          <span class="sr-only">Open main menu</span>
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
-      </div>
+      
       <div class="hidden lg:flex lg:gap-x-12">
         <button
           class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
@@ -24,7 +17,7 @@
   
         <button
           class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
-          (click)="openModal('loan')"
+          (click)="openModal('loanCreation')"
         >
           Create Loan
         </button>
@@ -149,7 +142,7 @@
         <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
       </div>
       
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="lg:flex lg:flex-1 lg:justify-end">
         <!-- <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a> -->
         <div>
             <div class="mt-2">
@@ -174,8 +167,19 @@
           </div>
           
       </div>
+      
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div class="flex lg:hidden">
+        <button (click)="ShowMainHeader.List=true" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Open main menu</span>
+          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
     </nav>
-    <!-- Mobile menu, show/hide based on menu open state. -->
+    
     <div class="lg:hidden" *ngIf="ShowMainHeader.List" role="dialog" aria-modal="true">
       <!-- Background backdrop, show/hide based on slide-over state. -->
       <div class="fixed inset-0 z-10"></div>
@@ -195,19 +199,27 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <button
-                class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
-                (click)="openModal('userProfile')"
-              >
-                Create User
-              </button>
+
+              <div (click)="openModal('userProfile')" class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50 border-2 border-black">
+                <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                  <svg class="size-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                  </svg>
+                </div>
+                <h3 class="text-gray-600">Create User</h3>
+              </div>
+              
         
-              <button
-                class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
-                (click)="openModal('loan')"
-              >
-                Create Loan
-              </button>
+              <div (click)="openModal('loanCreation')" class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50 border-2 border-black">
+                <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                  <svg class="size-6 text-gray-600 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                  </svg>
+                </div>
+                <h3 class="text-gray-600">Create Loan</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -216,7 +228,7 @@
   </header>
   <app-pop-up-modal [visible]="modalState.visible" (closed)="closeModal()">
     <ng-container [ngSwitch]="modalState.content">
-      <app-loancreation *ngSwitchCase="'loan'"></app-loancreation>
+      <app-loancreation *ngSwitchCase="'loanCreation'"></app-loancreation>
       <app-userprofile *ngSwitchCase="'userProfile'"></app-userprofile>
     </ng-container>
 
